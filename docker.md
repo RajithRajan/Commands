@@ -1,158 +1,158 @@
-Cheatsheet for Docker CLI
+# Cheatsheet for Docker CLI
 
-Run a new Container
+## Run a new Container \
 
-Start a new Container from an image
-docker run IMAGE
-docker run nginx
+Start a new Container from an image\
+docker run IMAGE\
+docker run nginx\
 
-and assign it a name
-docker run--name CONTAINER IMAGE
-docker run--name web nginx
+and assign it a name\
+docker run--name CONTAINER IMAGE\
+docker run--name web nginx\
 
-and map a port
-docker run -p HOSTPORT:CONTAINERPORT IMAGE
-docker run -p 8880:80 nginx
+and map a port\
+docker run -p HOSTPORT:CONTAINERPORT IMAGE\
+docker run -p 8880:80 nginx\
 
-and map all ports
-docker run -P IMAGE
-docker run -P nginx
+and map all ports\
+docker run -P IMAGE\
+docker run -P nginx\
 
-and start container in background
-docker run -d IMAGE
-docker run -d nginx
+and start container in background\
+docker run -d IMAGE\
+docker run -d nginx\
 
-and assign it a hostname
+and assign it a hostname\
 
-docker run-hostname HOSTNAME IMAGE
-docker run-hostname srv nginx
+docker run-hostname HOSTNAME IMAGE\
+docker run-hostname srv nginx\
 
-and add a dns entry
-docker run-add-host HOSTNAME: IP IMAGE
+and add a dns entry\
+docker run-add-host HOSTNAME: IP IMAGE\
 
-and map a local directory into the container
-docker run -v HOSTDIR: TARGETDIR IMAGE
-docker run -v-/:/usr/share/nginx/html nginx
+and map a local directory into the container\
+docker run -v HOSTDIR: TARGETDIR IMAGE\
+docker run -v-/:/usr/share/nginx/html nginx\
 
-but change the entrypoint
-docker run -it -entrypoint EXECUTABLE IMAGE
-docker run -it-entrypoint bash nginx
+but change the entrypoint\
+docker run -it -entrypoint EXECUTABLE IMAGE\
+docker run -it-entrypoint bash nginx\
 
-Manage Containers
+## Manage Containers\
 
-Show a list of running containers
-docker ps
+Show a list of running containers\
+docker ps\
 
-Show a list of all containers
-docker ps -3
+Show a list of all containers\
+docker ps -3\
 
-Delete a container
-docker rm CONTAINER
-docker rm web
+Delete a container\
+docker rm CONTAINER\
+docker rm web\
 
-Delete a running container
-docker rm -f CONTAINER
-docker rm -f web
+Delete a running container\
+docker rm -f CONTAINER\
+docker rm -f web\
 
-Delete stopped containers
-docker container prune
+Delete stopped containers\
+docker container prune\
 
-Stop a running container
-docker stop CONTAINER
-docker stop web
+Stop a running container\
+docker stop CONTAINER\
+docker stop web\
 
-Start a stopped container
-docker start CONTAINER
-docker start web.
+Start a stopped container\
+docker start CONTAINER\
+docker start web.\
 
-Copy a file from a container to the host
-docker ep CONTAINER:SOURCE TARGET
-docker op web:/index.html index.html
+Copy a file from a container to the host\
+docker ep CONTAINER:SOURCE TARGET\
+docker op web:/index.html index.html\
 
-Copy a file from the host to a container
-docker cp TARGET CONTAINER:SOURCE
-docker op index.html web:/index.html
+Copy a file from the host to a container\
+docker cp TARGET CONTAINER:SOURCE\
+docker op index.html web:/index.html\
 
-Start a shell inside a running container
-docker exec-it CONTAINER EXECUTABLE
-docker exec-it web bash
+Start a shell inside a running container\
+docker exec-it CONTAINER EXECUTABLE\
+docker exec-it web bash\
 
-Rename a container
+Rename a container\
 
-docker rename OLD NAME NEW NAME
-docker rename 895 web
+docker rename OLD NAME NEW NAME\
+docker rename 895 web\
 
-Create an image out of container
-docker commit CONTAINER
-docker commit web
+Create an image out of container\
+docker commit CONTAINER\
+docker commit web\
 
-Manage Images
+## Manage Images\
 
-Download an image
-docker pull IMAGE [TAG]
-docker pull nginx
+Download an image\
+docker pull IMAGE [TAG]\
+docker pull nginx\
 
-Upload an image to a repository
-docker push IMAGE docker
-push ayimage:1.0
+Upload an image to a repository\
+docker push IMAGE docker\
+push ayimage:1.0\
 
-Delete an image
-docker rmi IMAGE
+Delete an image\
+docker rmi IMAGE\
 
-Show a list of all Images
-docker images
+Show a list of all Images\
+docker images\
 
-Delete dangling images
-docker image prune
+Delete dangling images\
+docker image prune\
 
-Delete all unused images
-docker image prune -a
+Delete all unused images\
+docker image prune -a\
 
-Build an image from a Dockerfile
-docker build DIRECTORY
-docker build
+Build an image from a Dockerfile\
+docker build DIRECTORY\
+docker build\
 
-Tag an image
+Tag an image\
 
-docker tag IMAGE NEWIMAGE
-docker tag ubuntu ubuntu: 18.04
+docker tag IMAGE NEWIMAGE\
+docker tag ubuntu ubuntu: 18.04\
 
-Build and tag an image from a Dockerf
-docker build -t IMAGE DIRECTORY
-docker build -t myimage
+Build and tag an image from a Dockerf\
+docker build -t IMAGE DIRECTORY\
+docker build -t myimage\
 
-Save an image to tar file
-docker save IMAGE > FILE
-docker save nginx nginx. tar
+Save an image to tar file\
+docker save IMAGE > FILE\
+docker save nginx nginx. tar\
 
-Load an image from a tar file
-docker load - TARFILE
-docker load -i nginx.tar
+Load an image from a tar file\
+docker load - TARFILE\
+docker load -i nginx.tar\
 
-Info & Stats
+## Info & Stats\
 
-Show the logs of a container
-docker logs CONTAINER
-docker logs web
+Show the logs of a container\
+docker logs CONTAINER\
+docker logs web\
 
-Show stats of running containers
-docker stats
+Show stats of running containers\
+docker stats\
 
-Show processes of container
-docker top CONTAINER
-docker top web
+Show processes of container\
+docker top CONTAINER\
+docker top web\
 
-Show installed docker version
-docker version
+Show installed docker version\
+docker version\
 
-Get detailed info about an object
-docker inspect NAME
-docker inspect nginx
+Get detailed info about an object\
+docker inspect NAME\
+docker inspect nginx\
 
-Show all modified files in container
-docker diff CONTAINER
-docker diff web
+Show all modified files in container\
+docker diff CONTAINER\
+docker diff web\
 
-Show mapped ports of a container
-docker port CONTAINER
-docker port web
+Show mapped ports of a container\
+docker port CONTAINER\
+docker port web\
