@@ -1,8 +1,8 @@
 
-Git Add
-Add changes to staging area and start tracking files
+# Git Add
+_Add changes to staging area and start tracking files_
 
-Git Bisect
+# Git Bisect
 This is a series of commands to find the commit which introduce a bug, it will checkout different versions and we can test an see if the bug is present
 Start 
 Git Bisect start
@@ -14,7 +14,7 @@ Now git will check out one version and we have to provide feedback that it was g
 Return to earlier status
 Git Bisect reset
 
-Git Blame
+# Git Blame
 Give the information regarding commits which last changed a line in a file
 Git Blame <file_name>
 Git Blame -L 4,6 <file_name>
@@ -22,7 +22,7 @@ Git Blame -L 4,+4 <file_name>
 -s  suppress name and ts
 -e display email instead of name
 
-Git Branch
+# Git Branch
 List all the branches
 Git Branch -a
 List all local branch
@@ -39,7 +39,7 @@ Renaming local branch
 Git branch -m old-name new-name
 
 
-Git Checkout
+# Git Checkout
 Switching branch
 Git checkout <branch_name>
 Creating new branch
@@ -55,7 +55,7 @@ Git checkout --ours <file_name>
 While merge conflict keep their version
 Git checkout --theirs <file_name>
 
-Git Cherry-pick
+# Git Cherry-pick
 Copy the selected commits from one branch and append them to a different branch
 Git Cherry-pick <commit_sha>
 
@@ -63,7 +63,7 @@ Git Cherry-pick <commit_sha>
 -m parrent number of the merge commit
 -n no commit
 
-Git Config
+# Git Config
 To configure user name and email id
 Git Config --global user.name "<First> <Last>"
 Git Config --global user.email "<email_id>"
@@ -74,7 +74,7 @@ git config --global merge.tool bc3
 git config --global mergetool.bc3.cmd "\"c:/program files (x86)/beyond compare 3/BCompare.exe\" "$\LOCAL" "\$REMOTE" "\$BASE" "\$MERGED"
 git config --global merge.bc3.trustExitCode true
 
-Git Commit
+# Git Commit
 Saves all the changes
 Git Commit -m"<commit_msg>"
 Add and commit all changes
@@ -82,7 +82,7 @@ Git Commit -a -m "<commit_msg>"
 Fixing previous commit with out new commit, re-write history (avoid for public commits)
 Git Commit --amend
 
-Git Clear
+# Git Clear
 Used to remove untracked files
 Git clear
 -n to perform dry run
@@ -90,13 +90,13 @@ Git clear
 -d to include untracked directory
 -i to perform interactive
 
-Git Clone
+# Git Clone
 Get complete project from remote to local maachine
 Git clone <url>
 Clone single branch 
 Git clone -b <branch_name> --single-branch <url>
  
-Git Diff
+# Git Diff
 Shows exact changes with lines
 Git Diff HEAD~1 HEAD
 
@@ -112,7 +112,7 @@ Git fetch
 Download the remote content to your repo. Without changing your code changes
 Git fetch <remote_name> <branch_name>
 
-Git Hook
+# Git Hook
 Runs the script while, it should be present in .git/hooks folder. If new hooks add use chmod 755 to make them executable.
 Commiting workflow
 pre-commit
@@ -130,7 +130,7 @@ post-checkout
 Git Init
 Initialize the current folder to start tracking with git it creates .git folder
 
-Git Log
+# Git Log
 Display last two commits
 Git log -2
 Display history starting from commit_id
@@ -148,14 +148,14 @@ Git log --oneline --graph --all --decorate
 --author
 --follow ./path/to/filename
 
-Git Merge
+# Git Merge
 Merge changes of one branch to other
 Git Merge <branch_name>
 
 Merge the fetched remote content to local working tree
 Git Merge Origin/<branch_name>
 
-Git Pull
+# Git Pull
 Get new changes from remote repo branch to local repo
 Git pull origin <branch_name>
 Fetch remote copy and Rebase it into the current branch of local copy
@@ -163,7 +163,7 @@ Git pull --rebase
 
 Git pull origin master --allow-unrelated-histories
 
-Git Push
+# Git Push
 Send your local branch changes to remote branch
 Git push origin <branch>
 Deleting remote branch 
@@ -179,7 +179,7 @@ Delete tag from remote
 Git push origin -d <tag_id>
 Git push origin :<tag_id>
 
-Git remote
+# Git remote
 Add a new remote repo link to your local repo
 Git remote add <name> <url>
 For remote git on file system
@@ -191,7 +191,7 @@ Git remote set-url origin <url>
 Remove origin
 Git remote remove origin
 
-Git Rebase
+# Git Rebase
 Rebases the current branch onto the base
 Git Rebase <base>
 Perform interactive Rebase
@@ -199,11 +199,11 @@ Git Rebase -i <base>
 Git Rebase --abort
 Git Rebase --continue
 
-Git Reflog
+# Git Reflog
 It tracks the head, takes backup for 30 days
 Git reflog
 
-Git Reset (rewrite history)
+# Git Reset (rewrite history)
 Unstage a file
 Git Reset HEAD <file_name>
 Remove some commits moves changes into staging area not effecting work area
@@ -213,12 +213,12 @@ Match both working directory and staging area to commit (changes will be lost)
 Commit changes are moved to working area
 --mixed
 
-Git Revert
+# Git Revert
 Remove old commit and create a new revert commit
 Git Revert <commit_sha>
 -n  don't commit automatically
 
-Git Rev-parse
+# Git Rev-parse
 Plumbing command primary used for manipulation. Also have massage function to convert one form to another.
 Get the Sha of given revision specifier
 Git Rev-parse HEAD
@@ -227,16 +227,16 @@ Git Rev-parse --short HEAD
 --abbrev-ref to get the branch name
 --git-dir display the abs path of .git directory
 
-Git Rm
+# Git Rm
 Remove any tracked file from your repository
 Git Rm <file_name>
 Restoring deleted file
 Git Rev-list -n 1 Head -- filename
 Git checkout <commit_sha> -- filename
 
-Git Show
+# Git Show
 
-Git Stash
+# Git Stash
 Temporarily saves the changes made in working directory
 Git Stash save "<msg>"
 List all the stash
@@ -251,10 +251,10 @@ Remove all the stash
 Git Stash clear
 -u or --include-untracked include non tracked changes also 
 
-Git Status
+# Git Status
 Displays status of staging area and work directory 
 
-Git submodule
+# Git submodule
 Add third party library to your project and get updates
 Git submodule add <url>
 Display status of all submodule
@@ -262,7 +262,7 @@ Git submodule status
 Update submodule
 Git submodule update
 
-Git Tag
+# Git Tag
 Adding tag to current commit Id and branch
 Git tag <tag_id>
 Git tag <tag_id> <git_sha1>
