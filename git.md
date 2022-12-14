@@ -49,15 +49,15 @@ Git checkout <file_name>\
 Git checkout -- <file_name>\
 Git checkout -- .\
 Checkout any old commits\
-Git checkout <commit_SHA>\
+Git checkout <commit_SHA> \
 While merge conflict keep our version\
-Git checkout --ours <file_name>\
+Git checkout --ours <file_name> \
 While merge conflict keep their version\
-Git checkout --theirs <file_name>\
+Git checkout --theirs <file_name> \
 
 # Git Cherry-pick
 Copy the selected commits from one branch and append them to a different branch\
-Git Cherry-pick <commit_sha>\
+Git Cherry-pick <commit_sha> \
 
 -e  edit commit message\
 -m parrent number of the merge commit\
@@ -75,204 +75,204 @@ git config --global mergetool.bc3.cmd "\"c:/program files (x86)/beyond compare 3
 git config --global merge.bc3.trustExitCode true\
 
 # Git Commit
-Saves all the changes
-Git Commit -m"<commit_msg>"
-Add and commit all changes
-Git Commit -a -m "<commit_msg>"
-Fixing previous commit with out new commit, re-write history (avoid for public commits)
-Git Commit --amend
+Saves all the changes \
+Git Commit -m"<commit_msg>" \
+Add and commit all changes \
+Git Commit -a -m "<commit_msg>" \
+Fixing previous commit with out new commit, re-write history (avoid for public commits) \
+Git Commit --amend \
 
 # Git Clear
-Used to remove untracked files
-Git clear
--n to perform dry run
--f to force delete
--d to include untracked directory
--i to perform interactive
+Used to remove untracked files \
+Git clear \
+-n to perform dry run \
+-f to force delete \
+-d to include untracked directory \
+-i to perform interactive \
 
 # Git Clone
-Get complete project from remote to local maachine
-Git clone <url>
-Clone single branch 
-Git clone -b <branch_name> --single-branch <url>
+Get complete project from remote to local maachine \
+Git clone <url> \
+Clone single branch  \
+Git clone -b <branch_name> --single-branch <url> \
  
 # Git Diff
-Shows exact changes with lines
-Git Diff HEAD~1 HEAD
+Shows exact changes with lines \
+Git Diff HEAD~1 HEAD \
 
-Difference in staged changes
-Git Diff --staged
+Difference in staged changes \
+Git Diff --staged \
 
-List name of file only which changed
-Git Diff --name-only
+List name of file only which changed \
+Git Diff --name-only \
 
-List the difference of staged files
-Git Diff --cached
-Git fetch
-Download the remote content to your repo. Without changing your code changes
-Git fetch <remote_name> <branch_name>
+List the difference of staged files \
+`Git Diff --cached` \
+`Git fetch` \
+Download the remote content to your repo. Without changing your code changes \
+`Git fetch <remote_name> <branch_name>` \
 
 # Git Hook
-Runs the script while, it should be present in .git/hooks folder. If new hooks add use chmod 755 to make them executable.
-Commiting workflow
-pre-commit
-prepare-commit-msg
-commit-msg
-post-commit
-Email workflow hooks
-applypatch-msg
-pre-applypatch
-post-applypatch
-Other hooks
-prr-rebase
-post-rewrite
-post-checkout
-Git Init
-Initialize the current folder to start tracking with git it creates .git folder
+_Runs the script while, it should be present in .git/hooks folder. If new hooks add use chmod 755 to make them executable._ \
+Commiting workflow \
+pre-commit \
+prepare-commit-msg\
+commit-msg\
+post-commit\
+Email workflow hooks\
+applypatch-msg\
+pre-applypatch\
+post-applypatch\
+Other hooks\
+prr-rebase\
+post-rewrite\
+post-checkout\
+Git Init\
+Initialize the current folder to start tracking with git it creates .git folder\
 
 # Git Log
-Display last two commits
-Git log -2
-Display history starting from commit_id
-Git log <commit_id>
-Display the list of commits for the file
-Git log <filename>
+Display last two commits\
+Git log -2\
+Display history starting from commit_id\
+Git log <commit_id> \
+Display the list of commits for the file\
+Git log <filename> \
 
-Git log --oneline --graph --all --decorate
---oneline
---decorate
---graph
---grep=<pattern>
---since='<date>'
---untill='<date>'
---author
---follow ./path/to/filename
+`Git log --oneline --graph --all --decorate` \
+--oneline \
+--decorate\
+--graph\
+--grep=<pattern>\
+--since='<date>'\
+--untill='<date>'\
+--author\
+--follow ./path/to/filename\
 
 # Git Merge
-Merge changes of one branch to other
-Git Merge <branch_name>
+Merge changes of one branch to other\
+Git Merge <branch_name>\
 
-Merge the fetched remote content to local working tree
-Git Merge Origin/<branch_name>
+Merge the fetched remote content to local working tree\
+Git Merge Origin/<branch_name>\
 
 # Git Pull
-Get new changes from remote repo branch to local repo
-Git pull origin <branch_name>
-Fetch remote copy and Rebase it into the current branch of local copy
-Git pull --rebase
+Get new changes from remote repo branch to local repo\
+Git pull origin <branch_name> \
+Fetch remote copy and Rebase it into the current branch of local copy\
+Git pull --rebase\
 
-Git pull origin master --allow-unrelated-histories
+Git pull origin master --allow-unrelated-histories\
 
 # Git Push
-Send your local branch changes to remote branch
-Git push origin <branch>
-Deleting remote branch 
-Git push origin -d <branch_name>
-Renaming remote branch
-Git push origin :old-name new-name
-Pushing into remote git on filesystem
-Git push --set-upstream origin master
-Push tags to remote (update as release)
-Git push origin <tag_id>
-Git push --tags
-Delete tag from remote
-Git push origin -d <tag_id>
-Git push origin :<tag_id>
+Send your local branch changes to remote branch\
+Git push origin <branch> \
+Deleting remote branch \
+Git push origin -d <branch_name> \
+Renaming remote branch\
+Git push origin :old-name new-name\
+Pushing into remote git on filesystem\
+Git push --set-upstream origin master\
+Push tags to remote (update as release)\
+Git push origin <tag_id> \
+Git push --tags\
+Delete tag from remote\
+Git push origin -d <tag_id> \
+Git push origin :<tag_id> \
 
 # Git remote
-Add a new remote repo link to your local repo
-Git remote add <name> <url>
-For remote git on file system
-Git remote add origin 'c:/remote.git'
-List all remote repo URLs linked to your local repo
-Git remote -v
-Update the url of pushing
-Git remote set-url origin <url>
-Remove origin
-Git remote remove origin
+Add a new remote repo link to your local repo\
+Git remote add <name> <url> \
+For remote git on file system\
+Git remote add origin 'c:/remote.git'\
+List all remote repo URLs linked to your local repo\
+Git remote -v\
+Update the url of pushing\
+Git remote set-url origin <url> \
+Remove origin\
+Git remote remove origin\
 
 # Git Rebase
-Rebases the current branch onto the base
-Git Rebase <base>
-Perform interactive Rebase
-Git Rebase -i <base>
-Git Rebase --abort
-Git Rebase --continue
+Rebases the current branch onto the base\
+Git Rebase <base> \
+Perform interactive Rebase\
+Git Rebase -i <base> \
+Git Rebase --abort\
+Git Rebase --continue\
 
 # Git Reflog
-It tracks the head, takes backup for 30 days
-Git reflog
+It tracks the head, takes backup for 30 days\
+Git reflog\
 
 # Git Reset (rewrite history)
-Unstage a file
-Git Reset HEAD <file_name>
-Remove some commits moves changes into staging area not effecting work area
-Git Reset <commit_SHA> --soft
-Match both working directory and staging area to commit (changes will be lost)
---hard
-Commit changes are moved to working area
---mixed
+Unstage a file\
+Git Reset HEAD <file_name> \
+Remove some commits moves changes into staging area not effecting work area\
+Git Reset <commit_SHA> --soft\
+Match both working directory and staging area to commit (changes will be lost)\
+--hard\
+Commit changes are moved to working area\
+--mixed\
 
 # Git Revert
-Remove old commit and create a new revert commit
-Git Revert <commit_sha>
--n  don't commit automatically
+Remove old commit and create a new revert commit\
+Git Revert <commit_sha> \
+-n  don't commit automatically\
 
 # Git Rev-parse
-Plumbing command primary used for manipulation. Also have massage function to convert one form to another.
-Get the Sha of given revision specifier
-Git Rev-parse HEAD
-Git Rev-parse --short HEAD
---verify to verify if the object is valid git object
---abbrev-ref to get the branch name
---git-dir display the abs path of .git directory
+Plumbing command primary used for manipulation. Also have massage function to convert one form to another.\
+Get the Sha of given revision specifier\
+Git Rev-parse HEAD\
+Git Rev-parse --short HEAD\
+--verify to verify if the object is valid git object\
+--abbrev-ref to get the branch name\
+--git-dir display the abs path of .git directory\
 
 # Git Rm
-Remove any tracked file from your repository
-Git Rm <file_name>
-Restoring deleted file
-Git Rev-list -n 1 Head -- filename
-Git checkout <commit_sha> -- filename
+Remove any tracked file from your repository\
+Git Rm <file_name> \
+Restoring deleted file\
+Git Rev-list -n 1 Head -- filename\
+Git checkout <commit_sha> -- filename\
 
 # Git Show
 
 # Git Stash
-Temporarily saves the changes made in working directory
-Git Stash save "<msg>"
-List all the stash
-Git Stash list
-Applys the stashed changes but doesnt delete it
-Git Stash apply <stash_id>
-Will apply the first stash in the list and apply that and drop the stash from list
-Git Stash pop
-Remove the stash 
-Git Stash drop <stash_id>
-Remove all the stash
-Git Stash clear
--u or --include-untracked include non tracked changes also 
+Temporarily saves the changes made in working directory\
+Git Stash save "<msg>"\
+List all the stash\
+Git Stash list\
+Applys the stashed changes but doesnt delete it\
+Git Stash apply <stash_id> \
+Will apply the first stash in the list and apply that and drop the stash from list\
+Git Stash pop\
+Remove the stash \
+Git Stash drop <stash_id> \
+Remove all the stash\
+Git Stash clear\
+-u or --include-untracked include non tracked changes also \
 
 # Git Status
-Displays status of staging area and work directory 
+Displays status of staging area and work directory \
 
 # Git submodule
-Add third party library to your project and get updates
-Git submodule add <url>
-Display status of all submodule
-Git submodule status
-Update submodule
-Git submodule update
+Add third party library to your project and get updates\
+Git submodule add <url> \
+Display status of all submodule\
+Git submodule status\
+Update submodule\
+Git submodule update\
 
 # Git Tag
-Adding tag to current commit Id and branch
-Git tag <tag_id>
-Git tag <tag_id> <git_sha1>
-Annotated tag with desc
-Git tag -a <tag_id> -m"<msg>"
-List all tag
-Git tag
-Git tag -l "v1.*"
-Delete tag from local
-Git tag -d <tag_id>
+Adding tag to current commit Id and branch\
+Git tag <tag_id> \
+Git tag <tag_id> <git_sha1> \
+Annotated tag with desc\
+Git tag -a <tag_id> -m"<msg>"\
+List all tag\
+Git tag\
+Git tag -l "v1.*"\
+Delete tag from local\
+Git tag -d <tag_id> \
 
 
 
