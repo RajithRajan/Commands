@@ -267,7 +267,7 @@ Update submodule\
 Git submodule update\
 
 # Git switch
-_The "switch" command allows you to switch your current HEAD branch. It's relatively new (added in Git v2.23) and provides a simpler alternative to the classic "checkout" command._
+_The "switch" command allows you to switch your current HEAD branch. It's relatively new (added in Git v2.23) and provides a simpler alternative to the classic "checkout" command._ \
 **To switch to other-branch** \
 `git switch <other-branch>` \
 **To create a new branch** \
