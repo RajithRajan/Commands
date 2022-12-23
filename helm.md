@@ -44,14 +44,18 @@ _Push the image to oci registry_ \
 `helm registry login -u myuser` \
 `helm registry logout`
 
-# Repo Index
+# Repo 
 _To create index file for repo_ \
-Helm repo index
+`Helm repo index` \
+_To update the index of all the added repos_ \
+`helm repo update`
 
 
 # Search
 _To view the versions of gitlab runner run below comamnd_ \
-helm search repo -l gitlab/gitlab-runner
+`helm search repo -l gitlab/gitlab-runner` \
+_To list all the charts in a repo_ \
+`helm search repo prometheus-community`
 
 # Template
 `Helm template vault hashicorp/vault --output-dir vault-manifests/helm-manifests`
