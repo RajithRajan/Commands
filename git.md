@@ -180,16 +180,20 @@ Git push origin -d <tag_id> \
 Git push origin :<tag_id> \
 
 # Git remote
-Add a new remote repo link to your local repo\
-Git remote add <name> <url> \
-For remote git on file system\
-Git remote add origin 'c:/remote.git'\
-List all remote repo URLs linked to your local repo\
-Git remote -v\
-Update the url of pushing\
-Git remote set-url origin <url> \
-Remove origin\
-Git remote remove origin\
+_Add a new remote repo link to your local repo_ \
+`git remote add <name> <url>` \
+_For remote git on file system_ \
+`git remote add origin 'c:/remote.git'` \
+_List all remote repo URLs linked to your local repo_ \
+`git remote -v` \
+_Update the url of pushing_ \
+`git remote set-url origin <url>` \
+_Remove origin_ \
+`git remote remove origin` \
+**_To add multiple push target to a local repo_** \
+`git remote set-url --add --push origin git://original/repo.git` \
+`git remote set-url --add --push origin git://another/repo.git` \
+
 
 # Git Rebase
 Rebases the current branch onto the base\
