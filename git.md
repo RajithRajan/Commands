@@ -193,6 +193,8 @@ _Remove origin_ \
 **_To add multiple push target to a local repo_** \
 `git remote set-url --add --push origin git://original/repo.git` \
 `git remote set-url --add --push origin git://another/repo.git` \
+ _To delete the push target added_ \
+ `git remote set-url --delete --push origin git://another/repo.git` 
 
 
 # Git Rebase
