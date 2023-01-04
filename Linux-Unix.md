@@ -217,16 +217,17 @@ Making the file system ready(format) for Mount
 `sudo mkfs -t ext4 <device_name>`
 
 ## Mount
-Mount an EFS
-`Sudo Mount -t EFS <ipaddress>:/ </directory>`
-`sudo mount <device_name> <mount_point>`
-Mount device based on fstab
-`sudo mount -a`
-Permanent Mount
-`vi /etc/fstab`
+_Mount an EFS_ \
+`Sudo Mount -t EFS <ipaddress>:/ </directory>` \
+`sudo mount <device_name> <mount_point>` \
+_Permanent Mount_ \
+`sudo vi /etc/fstab` \
+_Mount device based on fstab_ \
+`sudo mount -a` \
+  
 
-List Mount
-`df -h`
+_List Mount_ \
+`df -h` \
 
 ## Nano
 It's a file editor with UI
