@@ -5,20 +5,20 @@ _Add changes to staging area and start tracking files_
 # Git Bisect
 _This is a series of commands to find the commit which introduce a bug, it will checkout different versions and we can test an see if the bug is present_\
 **Start**\
-`Git Bisect start`\
+`git bisect start`\
 **Identify a commit which was good**\
-`Git Bisect good <git_sha1>`\
+`git bisect good <git_sha1>`\
 **Identify a commit which was bad (no sha assume current)**\
-`Git Bisect bad <git_sha1>`\
+`git bisect bad <git_sha1>`\
 _Now git will check out one version and we have to provide feedback that it was good or bad_\
 **Return to earlier status**\
-`Git Bisect reset`\
+`git bisect reset`\
 
 # Git Blame
 _Give the information regarding commits which last changed a line in a file_\
-`Git Blame <file_name>`\
-`Git Blame -L 4,6 <file_name>`\
-`Git Blame -L 4,+4 <file_name>`\\
+`git blame <file_name>`\
+`Git blame -L 4,6 <file_name>`\
+`Git blame -L 4,+4 <file_name>`\\
 -s  suppress name and ts\
 -e display email instead of name\
 
@@ -65,22 +65,22 @@ Git Cherry-pick <commit_sha> \
 
 # Git Config
 To configure user name and email id\
-Git Config --global user.name "<First> <Last>"\
-Git Config --global user.email "<email_id>"\
+`git config --global user.name "<First> <Last>"` \
+`git config --global user.email "<email_id>"` \
 To create Alias for a command\
-Git Config --global alias.<alias_name> '<git_commad>'\
+`git config --global alias.<alias_name> '<git_commad>'` \
 Setting merge tool in windows\
-git config --global merge.tool bc3\
-git config --global mergetool.bc3.cmd "\"c:/program files (x86)/beyond compare 3/BCompare.exe\" "$\LOCAL" "\$REMOTE" "\$BASE" "\$MERGED"\
-git config --global merge.bc3.trustExitCode true\
+`git config --global merge.tool bc3` \
+`git config --global mergetool.bc3.cmd "\"c:/program files (x86)/beyond compare 3/BCompare.exe\" "$\LOCAL" "\$REMOTE" "\$BASE" "\$MERGED"` \
+`git config --global merge.bc3.trustExitCode true` 
 
 # Git Commit
 Saves all the changes \
-Git Commit -m"<commit_msg>" \
+`git commit -m"<commit_msg>"` \
 Add and commit all changes \
-Git Commit -a -m "<commit_msg>" \
+`git commit -a -m "<commit_msg>"` \
 Fixing previous commit with out new commit, re-write history (avoid for public commits) \
-Git Commit --amend \
+`git commit --amend` 
 
 # Git Clear
 Used to remove untracked files \
