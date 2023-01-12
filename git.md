@@ -206,18 +206,19 @@ Git Rebase --abort\
 Git Rebase --continue\
 
 # Git Reflog
-It tracks the head, takes backup for 30 days\
-Git reflog\
+_It tracks the head, takes backup for 30 days_ \
+`git reflog`
 
 # Git Reset (rewrite history)
-Unstage a file\
-Git Reset HEAD <file_name> \
-Remove some commits moves changes into staging area not effecting work area\
-Git Reset <commit_SHA> --soft\
-Match both working directory and staging area to commit (changes will be lost)\
---hard\
-Commit changes are moved to working area\
---mixed\
+_Unstage a file_ \
+`git reset HEAD <file_name>` \
+_Remove some commits moves changes into staging area not effecting work area_ \
+`git reset <commit_SHA> --soft` \
+`git reset --soft` \
+_Match both working directory and staging area to commit (**changes will be lost**)_ \
+`--hard` \
+_Commit changes are moved to working area_ \
+`--mixed` 
 
 # Git Revert
 Remove old commit and create a new revert commit\
