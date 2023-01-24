@@ -16,3 +16,7 @@ _Fetching the parameter store variable having secretstring data_
 
 _Port forward the RDP(3389) port to a local port 54321 (SSM plugin needed and EC2 instance should have SSM role)_  
 `aws ssm start-session --target $ec2_id --document-name AWS-StartPortForwardingSession --parameters "localPortNumber=54321,portNumber=3389" --region ap-south-1`
+
+## STS
+_Get information regarding the user which would be used by CLI_
+`aws sts get-caller-identity`
