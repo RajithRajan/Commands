@@ -1,3 +1,8 @@
+## Configure
+Configuring the AWS credential to be used for run the CLI   
+`aws configure set aws_access_key_id <AWS_ACCESS_KEY_ID>`  
+`aws configure set aws_secret_access_key <AWS_SECRET_ACCESS_KEY>`
+
 ## EC2
 _Describe an EC2 instance which has a specific tag_  
 `aws ec2 describe-instances --query "Reservations[*].Instances[*].InstanceId" --filters Name=tag:type,Values=EC2-Win --output text`
