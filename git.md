@@ -1,6 +1,8 @@
 
 # Git Add
-_Add changes to staging area and start tracking files_
+_Add changes to staging area and start tracking files_  
+_To add all the files_  
+`git add .`
 
 # Git Bisect
 _This is a series of commands to find the commit which introduce a bug, it will checkout different versions and we can test an see if the bug is present_\
@@ -17,47 +19,47 @@ _Now git will check out one version and we have to provide feedback that it was 
 # Git Blame
 _Give the information regarding commits which last changed a line in a file_\
 `git blame <file_name>`\
-`Git blame -L 4,6 <file_name>`\
-`Git blame -L 4,+4 <file_name>`\\
+`git blame -L 4,6 <file_name>`\
+`git blame -L 4,+4 <file_name>`\\
 -s  suppress name and ts\
 -e display email instead of name\
 
 # Git Branch
 **List all the branches**\
-Git Branch -a\
+`git Branch -a`\
 **List all local branch**\
-Git Branch -v\
+`git branch -v`\
 **List all remote branch**\
-Git Branch -r\
+`git branch -r`\
 **Create new branch**\
-Git Branch <branch-name>\
+`git branch <branch-name>`\
 **Delete a branch**\
-Git Branch <branch-name> -d\
+`git branch <branch-name> -d`\
 **Force delete a branch**\
-Git Branch <branch-name> -D\
+`git branch <branch-name> -D`\
 **Renaming local branch**\
-Git branch -m old-name new-name\
+`git branch -m old-name new-name`\
 
 
 # Git Checkout
 **Switching branch**\
-Git checkout <branch_name>\
+`git checkout <branch_name>`\
 Creating new branch\
-Git checkout -b <branch_name>\
+`git checkout -b <branch_name>`\
 Discard changes in working area\
-Git checkout <file_name>\
-Git checkout -- <file_name>\
-Git checkout -- .\
+`git checkout <file_name>`\
+`git checkout -- <file_name>`\
+`git checkout -- .`\
 Checkout any old commits\
-Git checkout <commit_SHA> \
+`git checkout <commit_SHA>` \
 While merge conflict keep our version\
-Git checkout --ours <file_name> \
+`git checkout --ours <file_name>` \
 While merge conflict keep their version\
-Git checkout --theirs <file_name> \
+`git checkout --theirs <file_name>` \
 
 # Git Cherry-pick
 Copy the selected commits from one branch and append them to a different branch\
-Git Cherry-pick <commit_sha> \
+`git Cherry-pick <commit_sha>` \
 
 -e  edit commit message\
 -m parrent number of the merge commit\
@@ -84,7 +86,7 @@ Fixing previous commit with out new commit, re-write history (avoid for public c
 
 # Git Clear
 Used to remove untracked files \
-Git clear \
+`git clear` \
 -n to perform dry run \
 -f to force delete \
 -d to include untracked directory \
@@ -92,25 +94,25 @@ Git clear \
 
 # Git Clone
 Get complete project from remote to local maachine \
-Git clone <url> \
+`git clone <url>` \
 Clone single branch  \
-Git clone -b <branch_name> --single-branch <url> \
+`git clone -b <branch_name> --single-branch <url>` \
  
 # Git Diff
 Shows exact changes with lines \
-Git Diff HEAD~1 HEAD \
+`git diff HEAD~1 HEAD` \
 
 Difference in staged changes \
-Git Diff --staged \
+`git diff --staged` \
 
 List name of file only which changed \
-Git Diff --name-only \
+`git diff --name-only` \
 
 List the difference of staged files \
-`Git Diff --cached` \
-`Git fetch` \
+`git diff --cached` \
+`git fetch` \
 Download the remote content to your repo. Without changing your code changes \
-`Git fetch <remote_name> <branch_name>` \
+`git fetch <remote_name> <branch_name>` \
 
 # Git Hook
 _Runs the script while, it should be present in .git/hooks folder. If new hooks add use chmod 755 to make them executable._ \
@@ -127,18 +129,22 @@ Other hooks\
 prr-rebase\
 post-rewrite\
 post-checkout\
-Git Init\
+ 
+# Git Init
 Initialize the current folder to start tracking with git it creates .git folder\
+`git init`  
+_ To set main as initial branch _  
+`git init --initial-branch=main`
 
 # Git Log
 Display last two commits\
-Git log -2\
+`git log -2` \
 Display history starting from commit_id\
-Git log <commit_id> \
+`git log <commit_id>` \
 Display the list of commits for the file\
-Git log <filename> \
+`git log <filename>` \
 
-`Git log --oneline --graph --all --decorate` \
+`git log --oneline --graph --all --decorate` \
 --oneline \
 --decorate\
 --graph\
@@ -149,35 +155,35 @@ Git log <filename> \
 --follow ./path/to/filename\
 
 # Git Merge
-Merge changes of one branch to other\
-Git Merge <branch_name>\
+Merge changes of branch_name to current branch\
+`git merge <branch_name>` \
 
 Merge the fetched remote content to local working tree\
-Git Merge Origin/<branch_name>\
+`git merge origin/<branch_name>` \
 
 # Git Pull
 Get new changes from remote repo branch to local repo\
-Git pull origin <branch_name> \
+`git pull origin <branch_name>` \
 Fetch remote copy and Rebase it into the current branch of local copy\
-Git pull --rebase\
+`git pull --rebase`\
 
 Git pull origin master --allow-unrelated-histories\
 
 # Git Push
 Send your local branch changes to remote branch\
-Git push origin <branch> \
+`git push origin <branch>` \
 Deleting remote branch \
-Git push origin -d <branch_name> \
+`git push origin -d <branch_name>` \
 Renaming remote branch\
-Git push origin :old-name new-name\
+`git push origin :old-name new-name` \
 Pushing into remote git on filesystem\
-Git push --set-upstream origin master\
+`git push --set-upstream origin master` \
 Push tags to remote (update as release)\
-Git push origin <tag_id> \
-Git push --tags\
+`git push origin <tag_id>` \
+`git push --tags` \
 Delete tag from remote\
-Git push origin -d <tag_id> \
-Git push origin :<tag_id> \
+`git push origin -d <tag_id>` \
+`git push origin :<tag_id>` \
 
 # Git remote
 _Add a new remote repo link to your local repo_ \
@@ -199,11 +205,11 @@ _Remove origin_ \
 
 # Git Rebase
 Rebases the current branch onto the base\
-Git Rebase <base> \
+`git Rebase <base>` \
 Perform interactive Rebase\
-Git Rebase -i <base> \
-Git Rebase --abort\
-Git Rebase --continue\
+`git Rebase -i <base>` \
+`git Rebase --abort`\
+`git Rebase --continue`
 
 # Git Reflog
 _It tracks the head, takes backup for 30 days_ \
@@ -222,52 +228,53 @@ _Commit changes are moved to working area_ \
 
 # Git Revert
 Remove old commit and create a new revert commit\
-Git Revert <commit_sha> \
+`git revert <commit_sha>` \
 -n  don't commit automatically\
 
 # Git Rev-parse
 Plumbing command primary used for manipulation. Also have massage function to convert one form to another.\
 Get the Sha of given revision specifier\
-Git Rev-parse HEAD\
-Git Rev-parse --short HEAD\
+`git rev-parse HEAD`\
+`Git rev-parse --short HEAD`\
 --verify to verify if the object is valid git object\
 --abbrev-ref to get the branch name\
 --git-dir display the abs path of .git directory\
 
 # Git Rm
 Remove any tracked file from your repository\
-Git Rm <file_name> \
+`git rm <file_name>` \
 Restoring deleted file\
-Git Rev-list -n 1 Head -- filename\
-Git checkout <commit_sha> -- filename\
+`git rev-list -n 1 Head -- filename`\
+`git checkout <commit_sha> -- filename`\
 
 # Git Show
 
 # Git Stash
 Temporarily saves the changes made in working directory\
-Git Stash save "<msg>"\
+`git stash save "<msg>"`\
 List all the stash\
-Git Stash list\
+`git stash list`\
 Applys the stashed changes but doesnt delete it\
-Git Stash apply <stash_id> \
+`git stash apply <stash_id>` \
 Will apply the first stash in the list and apply that and drop the stash from list\
-Git Stash pop\
+`git stash pop`\
 Remove the stash \
-Git Stash drop <stash_id> \
+`git stash drop <stash_id>` \
 Remove all the stash\
-Git Stash clear\
+`git stash clear`\
 -u or --include-untracked include non tracked changes also \
 
 # Git Status
 Displays status of staging area and work directory \
+ `git status`
 
 # Git submodule
 Add third party library to your project and get updates\
-Git submodule add <url> \
+`git submodule add <url>` \
 Display status of all submodule\
-Git submodule status\
+`git submodule status` \
 Update submodule\
-Git submodule update\
+`git submodule update`\
 
 # Git switch
 _The "switch" command allows you to switch your current HEAD branch. It's relatively new (added in Git v2.23) and provides a simpler alternative to the classic "checkout" command._ \
@@ -279,15 +286,15 @@ _The "switch" command allows you to switch your current HEAD branch. It's relati
  
 # Git Tag
 Adding tag to current commit Id and branch\
-Git tag <tag_id> \
-Git tag <tag_id> <git_sha1> \
+`git tag <tag_id>` \
+`git tag <tag_id> <git_sha1>` \
 Annotated tag with desc\
-Git tag -a <tag_id> -m"<msg>"\
+`git tag -a <tag_id> -m"<msg>"`\
 List all tag\
-Git tag\
-Git tag -l "v1.*"\
+`git tag`\
+`git tag -l "v1.*"`\
 Delete tag from local\
-Git tag -d <tag_id> \
+`git tag -d <tag_id>` \
 
 
 
