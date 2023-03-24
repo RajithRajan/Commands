@@ -2,15 +2,23 @@
 _Starting zookeeper_
 
 ```
-zookeeper-server-start.sh
+./zookeeper-server-start.sh ../config/zookeeper.properties
+```
+- _In backgroud mode_
+```
+./zookeeper-server-start.sh -daemon ../config/zookeeper.properties
 ```
 
-_Starting zookeeper_
+_Starting Kafka server_
 
 ```
-kafka-server-start.sh
+./kafka-server-start.sh ../config/server.properties
 ```
- 
+- _In backgroud mode_
+```
+./kafka-server-start.sh -daemon ../config/server.properties
+```
+
 ### Topics 
 _Creating topic_
 
@@ -49,4 +57,10 @@ _Listing consumer Groups_
 
 ```
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
+```
+
+### Producer
+_Creating Console Producer_ 
+```
+./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic <topic_name>
 ```
