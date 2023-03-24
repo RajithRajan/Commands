@@ -17,3 +17,9 @@ To open firewall to accept connection on 5000 port
 ```
 netsh advfirewall firewall add rule name="Allowing LAN connections" dir=in action=allow protocol=TCP localport=5000
 ```
+
+To list all the active portproxy
+
+```
+netsh interface portproxy show all
+```
