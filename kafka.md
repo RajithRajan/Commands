@@ -3,7 +3,7 @@ _Starting zookeeper_
 
 ```
 zookeeper-server-start.sh
- ```
+```
 
 _Starting zookeeper_
 
