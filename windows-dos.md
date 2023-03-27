@@ -91,3 +91,8 @@ Trace route a package takes to reach destination. Its limited by networking allo
 ```
 Tracert www.google.com
 ```
+
+
+
+To search AD group & users against domain controller
+%SystemRoot%\SYSTEM32\rundll32.exe dsquery,OpenQueryWindow
