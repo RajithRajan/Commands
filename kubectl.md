@@ -1,34 +1,55 @@
 ## Apply
 To apply any kubernetes manifest
-`kubectl apply -f <file_name>/<folder_name>`
+```
+kubectl apply -f <file_name>/<folder_name>
+```
 
 ## Config
 Configuration of the connection with the kubernetes cluster
 
 - To get the contexts avialable in the kubeconfig  
-`kubectl config get-contexts`
+```
+kubectl config get-contexts
+```
 
 - To switch to docker-desktop context  
-`kubectl config use-context docker-desktop `
+```
+kubectl config use-context docker-desktop 
+```
 
 ## Create
 To create a kubernetes resource  
-`kubectl create ns testns`
+```
+kubectl create ns testns
+```
 
 ## Delete
 To delete any kubernetes resource created using manifest  
-`kubectl delete -f <file_name>/<folder_name>`  
+```
+kubectl delete -f <file_name>/<folder_name>
+```  
 To delete a pod created by deployment  
-`kubectl delete po $(kubectl get po | egrep -o "<deployment_name>[a-zA-Z0-9-]+")`
+```
+kubectl delete po $(kubectl get po | egrep -o "<deployment_name>[a-zA-Z0-9-]+")
+```
 
 ## Describe
 To get additional details about a resource  
-`kubectl describe po <pod_name>`
+```
+kubectl describe po <pod_name>
+```
 
 ## Get PO/POD
 Command to get list of images currently running in default name space  
-`kubectl get pods   -o jsonpath="{.items[*].spec.containers[*].image}" | tr -ss '[[:space:]]' '\n' | sort | uniq -c`
+```
+kubectl get pods   -o jsonpath="{.items[*].spec.containers[*].image}" | tr -ss '[[:space:]]' '\n' | sort | uniq -c
+```
 
+## port-forward
+To port forward  local port to container port, it can be executed on  pod, service, rs or deployment.
+```
+kubectl port-forward deployment/mongo 28015:27017
+```
 ***
 # Resources
 
@@ -162,11 +183,15 @@ Command to get list of images currently running in default name space
 </table>
 
 ## Secret
-- To read the data from secret  
-`kubectl get secret gitlab-runner -n gitlab -o jsonpath="{.data.runner-registration-token}" | base64 --decode`
+- To read the data from secret
+```  
+kubectl get secret gitlab-runner -n gitlab -o jsonpath="{.data.runner-registration-token}" | base64 --decode
+```
 
 - To create a docker registry credential secret  
-`kubectl create secret docker-registry gitlab-regcred --docker-server=registry.gitlab.com --docker-username=<gitlab_user> --docker-password=<gitlab_token>`
+```
+kubectl create secret docker-registry gitlab-regcred --docker-server=registry.gitlab.com --docker-username=<gitlab_user> --docker-password=<gitlab_token>
+```
 
 ## Reference 
 https://github.com/RajithRajan/kubernetes-trial
