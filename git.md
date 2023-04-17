@@ -216,11 +216,22 @@ _It tracks the head, takes backup for 30 days_ \
 `git reflog`
 
 # Git Reset (rewrite history)
-_Unstage a file_ \
-`git reset HEAD <file_name>` \
+Undo last commit and keep the file staged
+```
+git reset --soft HEAD^
+``` 
+ 
+ _Unstage a file_ 
+```
+ git reset HEAD <file_name>
+ ```
 _Remove some commits moves changes into staging area not effecting work area_ \
-`git reset <commit_SHA> --soft` \
-`git reset --soft` \
+```
+ git reset <commit_SHA> --soft
+ ```
+```
+ git reset --soft
+``` 
 _Match both working directory and staging area to commit (**changes will be lost**)_ \
 `--hard` \
 _Commit changes are moved to working area_ \
