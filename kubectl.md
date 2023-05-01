@@ -257,6 +257,6 @@ kubectl create secret docker-registry gitlab-regcred --docker-server=registry.gi
 ```
 
 ## Reference 
-https://github.com/RajithRajan/kubernetes-trial
-https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+https://github.com/RajithRajan/kubernetes-trial  
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/  
 https://kubernetes.io/docs/reference/kubectl/jsonpath/
