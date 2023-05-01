@@ -1,7 +1,20 @@
+## annotate
+Annotate a resource which might trigger an action by an operator/controller
+```
+kubectl annotate pods my-pod icon-url=http://goo.gl/XXBTWq       # Add an annotation
+kubectl annotate pods my-pod icon-                               # Remove annotation
+```
+
 ## Apply
 To apply any kubernetes manifest
 ```
 kubectl apply -f <file_name>/<folder_name>
+```
+
+## autoscale
+To add hpa
+```
+kubectl autoscale deployment foo --min=2 --max=10                # Auto scale a deployment "foo"
 ```
 
 ## Config
@@ -15,6 +28,18 @@ kubectl config get-contexts
 - To switch to docker-desktop context  
 ```
 kubectl config use-context docker-desktop 
+```
+
+- To set default namespace to _abc_
+```
+kubectl config set-context --current --namespace=abc
+```
+
+## Cordon & drain
+```
+kubectl cordon my-node                                                # Mark my-node as unschedulable
+kubectl drain my-node                                                 # Drain my-node in preparation for maintenance
+kubectl uncordon my-node                                              # Mark my-node as schedulable
 ```
 
 ## Create
@@ -39,10 +64,32 @@ To get additional details about a resource
 kubectl describe po <pod_name>
 ```
 
+## diff
+Compares the current state of the cluster against the state that the cluster would be in if the manifest was applied.
+```
+kubectl diff -f ./my-manifest.yaml
+```
+
 ## Get PO/POD
 Command to get list of images currently running in default name space  
 ```
 kubectl get pods   -o jsonpath="{.items[*].spec.containers[*].image}" | tr -ss '[[:space:]]' '\n' | sort | uniq -c
+```
+
+## label
+```
+kubectl label pods my-pod new-label=awesome                      # Add a Label
+kubectl label pods my-pod new-label-                             # Remove a label
+```
+
+## log
+to get the logs of the current or previous pod
+```
+kubectl logs my-pod                                 # dump pod logs (stdout)
+kubectl logs -l name=myLabel                        # dump pod logs, with label name=myLabel (stdout)
+kubectl logs my-pod --previous                      # dump pod logs (stdout) for a previous instantiation of a container
+kubectl logs my-pod -c my-container                 # dump pod container logs (stdout, multi-container case)
+kubectl logs -l name=myLabel -c my-container        # dump pod logs, with label name=myLabel (stdout)
 ```
 
 ## port-forward
@@ -50,7 +97,23 @@ To port forward  local port to container port, it can be executed on  pod, servi
 ```
 kubectl port-forward deployment/mongo 28015:27017
 ```
+
+## rollout
+```
+kubectl set image deployment/frontend www=image:v2               # Rolling update "www" containers of "frontend" deployment, updating the image
+kubectl rollout history deployment/frontend                      # Check the history of deployments including the revision
+kubectl rollout undo deployment/frontend                         # Rollback to the previous deployment
+kubectl rollout undo deployment/frontend --to-revision=2         # Rollback to a specific revision
+kubectl rollout status -w deployment/frontend                    # Watch rolling update status of "frontend" deployment until completion
+kubectl rollout restart deployment/frontend                      # Rolling restart of the "frontend" deployment
+```
 ***
+
+## top
+```
+kubectl top pod POD_NAME --containers               # Show metrics for a given pod and its containers
+kubectl top pod POD_NAME --sort-by=cpu              # Show metrics for a given pod and sort it by 'cpu' or 'memory'
+```
 # Resources
 
 <table>
@@ -195,3 +258,5 @@ kubectl create secret docker-registry gitlab-regcred --docker-server=registry.gi
 
 ## Reference 
 https://github.com/RajithRajan/kubernetes-trial
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+https://kubernetes.io/docs/reference/kubectl/jsonpath/
