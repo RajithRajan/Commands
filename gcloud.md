@@ -89,5 +89,19 @@ gcloud app create                                   # Create an App Engine app w
 gcloud app logs read                                # Display the latest App Engine app logs.
 ```
 
+## Global flags
+
+Some flags are available throughout the gcloud CLI experience, like:
+```
+--help                                              # For when in doubt; display detailed help for a command.
+--project                                           # If using a project other than the current one.
+--quiet                                             # Disabling interactive prompting (and applying default values for inputs).
+--verbosity                                         # Can set verbosity levels at debug, info, warning, error, critical, and none.
+--version                                           # Display gcloud version information.
+--format                                            # Set output format as config, csv, default, diff, disable, flattened, get, json, list, multi, none, object, table, text, value, or yaml.
+```
+
+
 ## Reference
 https://cloud.google.com/sdk/docs/cheatsheet
+https://cloud.google.com/sdk/gcloud/reference
