@@ -1,3 +1,16 @@
+## alias
+Used to create alias/short form for commonly used commands
+
+Create a alias k for kubectl 
+```
+alias k='kubectl'
+```
+Create an alias gl for git log
+```
+alias gl='git log --oneline --graph --decorate --all'
+```
+
+
 ## Awk
 Used for processing file having tabular data
 
