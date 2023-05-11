@@ -93,14 +93,14 @@ docker start web.
 
 Copy a file from a container to the host
 ```
-docker ep CONTAINER:SOURCE TARGET
-docker op web:/index.html index.html
+docker cp CONTAINER:SOURCE TARGET
+docker cp web:/index.html index.html
 ```
 
 Copy a file from the host to a container
 ```
-docker cp TARGET CONTAINER:SOURCE
-docker op index.html web:/index.html
+docker cp SOURCE CONTAINER:TARGET
+docker cp index.html web:/index.html
 ```
 
 Start a shell inside a running container
