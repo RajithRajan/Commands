@@ -10,6 +10,13 @@ To apply any kubernetes manifest
 ```
 kubectl apply -f <file_name>/<folder_name>
 ```
+## auth
+To check and reconcile access
+
+This will give yes or no based on the access setup
+```
+kubectl auth can-i view pods
+```
 
 ## autoscale
 To add hpa
