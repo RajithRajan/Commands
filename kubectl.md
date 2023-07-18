@@ -5,11 +5,18 @@ kubectl annotate pods my-pod icon-url=http://goo.gl/XXBTWq       # Add an annota
 kubectl annotate pods my-pod icon-                               # Remove annotation
 ```
 
+## api-resources
+List the api & versions currently available in the kubernetes clusters 
+```
+kubectl api-resources
+```
+
 ## Apply
 To apply any kubernetes manifest
 ```
 kubectl apply -f <file_name>/<folder_name>
 ```
+
 ## auth
 To check and reconcile access
 
