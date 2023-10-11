@@ -1,5 +1,5 @@
 
-# Git Add
+# git add
 _Add changes to staging area and start tracking files_  
 _To add all the files_  
 `git add .`
@@ -59,7 +59,7 @@ While merge conflict keep their version\
 
 # Git Cherry-pick
 Copy the selected commits from one branch and append them to a different branch\
-`git Cherry-pick <commit_sha>` \
+`git cherry-pick <commit_sha>` \
 
 -e  edit commit message\
 -m parrent number of the merge commit\
@@ -113,6 +113,13 @@ List the difference of staged files \
 `git fetch` \
 Download the remote content to your repo. Without changing your code changes \
 `git fetch <remote_name> <branch_name>` \
+
+# git fsck
+_Verifies the connectivity and validity of the objects in the database, its helpfull if you are getting error while push, pul or commit._ \
+```
+git fsck --full
+```
+Run the above command and remove the file causing fatal and error message, dangling once can be ignored.
 
 # Git Hook
 _Runs the script while, it should be present in .git/hooks folder. If new hooks add use chmod 755 to make them executable._ \
