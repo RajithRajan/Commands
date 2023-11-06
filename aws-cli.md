@@ -11,6 +11,12 @@ _Describe an EC2 instance which has a specific tag_
 Update the Kube config to enable connection to kubernetes api server using kubectl  
 `aws eks --region <aws-region> update-kubeconfig --name <cluster_name>`
 
+## EMR
+To list the virtual cluster id for the EMR container along with namespace which are in terminated state.
+```
+aws emr-containers list-virtual-clusters --query "virtualClusters[*].[id , containerProvider.info.eksInfo.namespace]" --states TERMINATED --output text
+```
+
 ## S3
 _Sync S3 content from the local directory_  
 `aws s3 sync . s3://<s3-uri>`
