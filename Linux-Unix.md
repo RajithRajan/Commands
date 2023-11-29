@@ -378,26 +378,33 @@ For Ubuntu
 
 
 ## Operators
-. PWD
-.. one folder up
-~ home
-> Redirecting output to a file
->> Redirecting output to a file append
-| Pipe is used to run command on output of other command
-+-*/ plus minus multiplication division
-% reminder
-** Power
-Var++ add 1 after running this
-++Var add 1 before running
-+=,-= short hand
-$(<command>) command expansion
-`<command>` command expansion
-$((<arithmetic_exp>)) arithmetic expansion
-Executing shell script in current directory
-./<script_file>
-Shell start with shebang
-#!<location_of_program>
+. PWD  
+.. one folder up  
+~ home  
+> Redirecting output to a file  
+>> Redirecting output to a file append  
+| Pipe is used to run command on output of other command  
++-*/ plus minus multiplication division  
+% reminder  
+** Power  
+Var++ add 1 after running this  
+++Var add 1 before running  
++=,-= short hand  
+$(<command>) command expansion  
+`<command>` command expansion  
+$((<arithmetic_exp>)) arithmetic expansion  
+Executing shell script in current directory  
+./<script_file>  
+Shell start with shebang  
+#!<location_of_program>  
 #!/bin/bash
+
+## Inputs to script or function
+$# - Number of inputs  
+$@ - All the inputs  
+$1 - First input  
+$0 - name of the script  
+$? - return code of last operation  
 
 ## Condition Check
 if [ 3 -eq 3 ] ;  then
