@@ -270,6 +270,20 @@ kubectl get secret gitlab-runner -n gitlab -o jsonpath="{.data.runner-registrati
 kubectl create secret docker-registry gitlab-regcred --docker-server=registry.gitlab.com --docker-username=<gitlab_user> --docker-password=<gitlab_token>
 ```
 
+# Issues
+## Stuck namespace in terminating status
+Run below command to find the resource which is still present in the namespace causing the issue.
+```
+kubectl api-resources --verbs=list --namespaced -o name \
+  | xargs -n 1 kubectl get --show-kind --ignore-not-found -n argo-events
+```
+
+## Ingress or other resources not getting deleted
+Run patch command to remove the finalizers, it would get deleted.
+```
+kubectl patch ing argocd-server  -p '{"metadata":{"finalizers":[]}}' --type=merge -n argocd
+```
+
 ## Reference 
 https://github.com/RajithRajan/kubernetes-trial  
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/  
