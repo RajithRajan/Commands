@@ -16,6 +16,10 @@ To apply any kubernetes manifest
 ```
 kubectl apply -f <file_name>/<folder_name>
 ```
+To validate a manifest without implementing it
+```
+kubectl apply --dry-run=client -f <yaml-file>
+```
 
 ## auth
 To check and reconcile access
@@ -23,6 +27,10 @@ To check and reconcile access
 This will give yes or no based on the access setup
 ```
 kubectl auth can-i view pods
+```
+Check access of a service account to perform some action
+```
+kubectl auth can-i list pods --as=system:serviceaccount:<namespace>:<serviceaccount-name>
 ```
 
 ## autoscale
@@ -53,6 +61,7 @@ kubectl config set-context --current --namespace=abc
 ```
 kubectl cordon my-node                                                # Mark my-node as unschedulable
 kubectl drain my-node                                                 # Drain my-node in preparation for maintenance
+kubectl drain <node-name> --ignore-daemonsets
 kubectl uncordon my-node                                              # Mark my-node as schedulable
 ```
 
@@ -60,6 +69,12 @@ kubectl uncordon my-node                                              # Mark my-
 To create a kubernetes resource  
 ```
 kubectl create ns testns
+```
+
+## Debug
+To run debug container
+```
+kubectl debug -it <pod-name> -n <namespace> --image=<debug-image> -- /bin/sh
 ```
 
 ## Delete
@@ -77,6 +92,14 @@ To get additional details about a resource
 ```
 kubectl describe po <pod_name>
 ```
+To check node capacity and allocation
+```
+kubectl describe node <node-name> | grep -E "Capacity|Allocatable"
+```
+To check node condition (Memorypresure, diskpressure and PID pressure)
+```
+kubectl describe node <node-name> | grep Conditions -A5
+```
 
 ## diff
 Compares the current state of the cluster against the state that the cluster would be in if the manifest was applied.
@@ -88,6 +111,22 @@ kubectl diff -f ./my-manifest.yaml
 Command to get list of images currently running in default name space  
 ```
 kubectl get pods   -o jsonpath="{.items[*].spec.containers[*].image}" | tr -ss '[[:space:]]' '\n' | sort | uniq -c
+```
+To get affinity for a pod
+```
+kubectl get pod <pod-name> -n <namespace> -o=jsonpath='{.spec.affinity}'
+```
+To get pod affinity for a pod
+```
+kubectl get pod <pod-name> -n <namespace> -o=jsonpath='{.spec.affinity.podAntiAffinity}'
+```
+Get mutating webhook configuration
+```
+kubectl get mutatingwebhookconfigurations
+```
+Get validating webhook configuration
+```
+kubectl get validatingwebhookconfigurations
 ```
 
 ## label
@@ -122,6 +161,12 @@ kubectl rollout status -w deployment/frontend                    # Watch rolling
 kubectl rollout restart deployment/frontend                      # Rolling restart of the "frontend" deployment
 ```
 ***
+
+## run
+Run a busbox image to perform network diagnostic
+```
+kubectl run -it --rm --restart=Never --image=busybox net-debug-pod -- /bin/sh
+```
 
 ## top
 ```
