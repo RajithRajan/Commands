@@ -65,6 +65,10 @@ _To list all the charts in a repo_ \
 
 # Upgrade
 `Helm upgrade <name> -set `
+Upgrade the chart if found if not install
+```
+helm upgrade --install gitlab-runner -f gitlab-runner-values-new.yaml gitlab/gitlab -n gitlab
+```
 
 
 # Schema validation
