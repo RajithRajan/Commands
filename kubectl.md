@@ -65,6 +65,14 @@ kubectl drain <node-name> --ignore-daemonsets
 kubectl uncordon my-node                                              # Mark my-node as schedulable
 ```
 
+## cp
+To copy file into and out of a pod
+```
+kubectl cp <namespace>/<pod_name>:<mountpoint>/<filename> <filename>        # From pod to local
+kubectl cp <filename> <namespace>/<pod_name>:<mountpoint>/<filename>        # From local to pod
+kubectl cp default/efs-test:data/file1 file1.txt
+```
+
 ## Create
 To create a kubernetes resource  
 ```
