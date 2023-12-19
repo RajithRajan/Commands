@@ -3,12 +3,13 @@
 ## Getting started
 Get going with the gcloud CLI.
 ```
-gcloud init                               # Initialize, authorize, and configure the gcloud CLI.
-gcloud version                            # Display version and installed components.
-gcloud components install                 # Install specific components.
-gcloud components update                  # Update your gcloud CLI to the latest version.
-gcloud config set project                 # Set a default Google Cloud project to work on.
-gcloud info                               # Display current gcloud CLI environment details.
+gcloud init                                       # Initialize, authorize, and configure the gcloud CLI.
+gcloud version                                    # Display version and installed components.
+gcloud components install                         # Install specific components.
+gcloud components install gke-gcloud-auth-plugin  ## To connect to gke using kubectl on k8s v1.26+
+gcloud components update                          # Update your gcloud CLI to the latest version.
+gcloud config set project                         # Set a default Google Cloud project to work on.
+gcloud info                                       # Display current gcloud CLI environment details.
 ```
 
 ## Personalization
@@ -61,6 +62,7 @@ gcloud auth configure-docker                        # Register the gcloud CLI as
 gcloud container clusters create                    # Create a cluster to run GKE containers.
 gcloud container clusters list                      # List clusters for running GKE containers.
 gcloud container clusters get-credentials           # Update kubeconfig to get kubectl to use a GKE cluster.
+gcloud container clusters get-credentials <cluster_name> --region <region> --project <project_name>
 gcloud container images list-tags                   # List tag and digest metadata for a container image.
 ```
 
