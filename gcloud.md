@@ -9,6 +9,7 @@ gcloud components install                         # Install specific components.
 gcloud components install gke-gcloud-auth-plugin  ## To connect to gke using kubectl on k8s v1.26+
 gcloud components update                          # Update your gcloud CLI to the latest version.
 gcloud config set project                         # Set a default Google Cloud project to work on.
+gcloud config set project <PROJECT_ID>
 gcloud info                                       # Display current gcloud CLI environment details.
 ```
 
@@ -27,7 +28,9 @@ gcloud config configurations activate     # Switch to an existing named configur
 Grant and revoke authorization to the gcloud CLI and manage credentials.
 ```
 gcloud auth login                         # Authorize Google Cloud access for the gcloud CLI with Google Cloud user credentials and set the current account as active.
+gcloud auth login --cred-file=<path_to_keyfile>
 gcloud auth activate-service-account      # Authorize Google Cloud access similar to gcloud auth login but with service account credentials.
+gcloud auth activate-service-account --key-file=<path_to_keyfile>
 gcloud auth application-default           # Manage your Application Default Credentials (ADC) for Cloud Client Libraries.
 gcloud auth list                          # List all credentialed accounts.
 gcloud auth print-access-token            # Display the current account's access token.
