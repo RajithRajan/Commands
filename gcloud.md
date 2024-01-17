@@ -68,6 +68,18 @@ gcloud container clusters get-credentials           # Update kubeconfig to get k
 gcloud container clusters get-credentials <cluster_name> --region <region> --project <project_name>
 gcloud container images list-tags                   # List tag and digest metadata for a container image.
 ```
+List the fleet memberships for the project
+```
+gcloud container fleet memberships list --project <project_id>
+```
+Describe that Anthos Mesh 
+```
+gcloud container fleet mesh describe --project <project_id>
+```
+Describe the status of Anthos control plane
+```
+kubectl describe controlplanerevision asm-managed -n istio-system
+```
 
 ## Virtual Machines & Compute Engine
 
