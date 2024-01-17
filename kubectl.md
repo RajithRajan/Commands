@@ -137,6 +137,12 @@ Get validating webhook configuration
 kubectl get validatingwebhookconfigurations
 ```
 
+## get svc/service
+Get the external ip address of loadbalancer service
+```
+kubectl get svc istio-ingressgateway -n istio-gateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}
+```
+
 ## label
 ```
 kubectl label pods my-pod new-label=awesome                      # Add a Label
