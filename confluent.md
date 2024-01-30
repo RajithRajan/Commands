@@ -30,6 +30,10 @@ Create an Api key to interract with the kafka cluster
 ```
 confluent api-key create --resource <cluster_id>
 ```
+Store the API key generated else where (UI or terraform), it will prompt to enter api key adn secret
+```
+confluent api-key store --resource <cluster_id>
+```
 Use the api-key for the kafka cluster
 ```
 confluent api-key use <api_key> --resource <cluster_id>
