@@ -55,8 +55,36 @@ confluent kafka topic list
 ```
 confluent kafka topic consume --from-beginning <topic_name>
 ```
+Using Schema registry. format of the value is protobuf, avro is default.
+```
+confluent kafka topic consume <topic_name> \
+         --from-beginning \
+         --value-format protobuf \
+         --sr-endpoint https://<sr_ep> \
+         --sr-api-key <sr_api_key> \
+         --sr-api-secret <sr_api_secret> \
+         --cluster <cluster_id>
+```
 *Producer* : Create new messages (key & value) for the kafka topic
 ```
 confluent kafka topic produce <topic_name> --parse-key
 <key>:<value>
+```
+Using Schema registry. format of the value is protobuf, avro is default.
+```
+confluent kafka topic produce <topic_name> \
+         --value-format protobuf \
+         --schema src/main/proto/purchase.proto \
+         --sr-endpoint https://<sr_ep> \
+         --sr-api-key <sr_api_key> \
+         --sr-api-secret <sr_api_secret> \
+         --cluster <cluster_id>
+```
+Using kafka console producer
+```
+./bin/kafka-protobuf-console-producer \
+  --topic <topic_name> \
+  --bootstrap-server <server_uri> \
+  -- property schema.registry.url = ttps://<sr_ep> \
+  -- property value.schema = "$(<src/main/proto/purchase.proto)"
 ```
