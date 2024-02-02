@@ -94,6 +94,21 @@ gcloud compute snapshots describe                   # Display a snapshot's detai
 gcloud compute snapshots delete                     # Delete a snapshot.
 gcloud compute ssh                                  # Connect to a VM instance by using SSH.
 ```
+### ssh
+SSH into an instance
+```
+gcloud compute ssh --project=<PROJECT_ID> --zone=<ZONE> <VM_NAME>
+```
+
+### Start up script
+Get logs
+```
+sudo journalctl -u google-startup-scripts.service
+```
+Rerun the start up script
+```
+sudo google_metadata_script_runner --script-type startup
+```
 
 ## Serverless & App Engine
 
