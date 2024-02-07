@@ -1,5 +1,3 @@
-# Cheat sheet
-
 ## Getting started
 Get going with the gcloud CLI.
 ```
@@ -35,53 +33,21 @@ gcloud auth application-default           # Manage your Application Default Cred
 gcloud auth list                          # List all credentialed accounts.
 gcloud auth print-access-token            # Display the current account's access token.
 gcloud auth revoke                        # Remove access credentials for an account.
-```    
-
-## Projects
-
-Manage project access policies.
-```
-gcloud projects describe                  # Display metadata for a project (including its ID).
-gcloud projects add-iam-policy-binding    # Add an IAM policy binding to a specified project.
 ```
 
-## IAM
+===========================================================================================================
+##  App Engine (Serverless)
 
-Configuring Identity and Access Management (IAM) preferences and service accounts.
+Build highly scalable applications on a fully managed serverless platform
 ```
-gcloud iam list-grantable-roles                     # List IAM grantable roles for a resource.
-gcloud iam roles create                             # Create a custom role for a project or org.
-gcloud iam service-accounts create                  # Create a service account for a project.
-gcloud iam service-accounts add-iam-policy-binding  # Add an IAM policy binding to a service account.
-gcloud iam service-accounts set-iam-policy-binding  # Replace existing IAM policy binding.
-gcloud iam service-accounts keys list               # List a service account's keys.
-```
-
-## Docker & Google Kubernetes Engine (GKE)
-
-Manage containerized applications on Kubernetes.
-```
-gcloud auth configure-docker                        # Register the gcloud CLI as a Docker credential helper.
-gcloud container clusters create                    # Create a cluster to run GKE containers.
-gcloud container clusters list                      # List clusters for running GKE containers.
-gcloud container clusters get-credentials           # Update kubeconfig to get kubectl to use a GKE cluster.
-gcloud container clusters get-credentials <cluster_name> --region <region> --project <project_name>
-gcloud container images list-tags                   # List tag and digest metadata for a container image.
-```
-List the fleet memberships for the project
-```
-gcloud container fleet memberships list --project <project_id>
-```
-Describe that Anthos Mesh 
-```
-gcloud container fleet mesh describe --project <project_id>
-```
-Describe the status of Anthos control plane
-```
-kubectl describe controlplanerevision asm-managed -n istio-system
+gcloud app deploy                                   # Deploy your app's code and configuration to the App Engine server.
+gcloud app versions list                            # List all versions of all services deployed to the App Engine server.
+gcloud app browse                                   # Open the current app in a web browser.
+gcloud app create                                   # Create an App Engine app within your current project.
+gcloud app logs read                                # Display the latest App Engine app logs.
 ```
 
-## Virtual Machines & Compute Engine
+## Compute Engine (Virtual Machines)
 
 Create, run, and manage VMs on Google Cloud infrastructure.
 ```
@@ -110,16 +76,82 @@ Rerun the start up script
 sudo google_metadata_script_runner --script-type startup
 ```
 
-## Serverless & App Engine
 
-Build highly scalable applications on a fully managed serverless platform
+## Container & Google Kubernetes Engine (GKE)
+
+Manage containerized applications on Kubernetes.
 ```
-gcloud app deploy                                   # Deploy your app's code and configuration to the App Engine server.
-gcloud app versions list                            # List all versions of all services deployed to the App Engine server.
-gcloud app browse                                   # Open the current app in a web browser.
-gcloud app create                                   # Create an App Engine app within your current project.
-gcloud app logs read                                # Display the latest App Engine app logs.
+gcloud auth configure-docker                        # Register the gcloud CLI as a Docker credential helper.
+gcloud container clusters create                    # Create a cluster to run GKE containers.
+gcloud container clusters list                      # List clusters for running GKE containers.
+gcloud container clusters get-credentials           # Update kubeconfig to get kubectl to use a GKE cluster.
+gcloud container clusters get-credentials <cluster_name> --region <region> --project <project_name>
+gcloud container images list-tags                   # List tag and digest metadata for a container image.
 ```
+List the fleet memberships for the project
+```
+gcloud container fleet memberships list --project <project_id>
+```
+Describe that Anthos Mesh 
+```
+gcloud container fleet mesh describe --project <project_id>
+```
+Describe the status of Anthos control plane
+```
+kubectl describe controlplanerevision asm-managed -n istio-system
+```
+
+## IAM
+
+Configuring Identity and Access Management (IAM) preferences and service accounts.
+```
+gcloud iam list-grantable-roles                     # List IAM grantable roles for a resource.
+gcloud iam roles create                             # Create a custom role for a project or org.
+gcloud iam service-accounts create                  # Create a service account for a project.
+gcloud iam service-accounts add-iam-policy-binding  # Add an IAM policy binding to a service account.
+gcloud iam service-accounts set-iam-policy-binding  # Replace existing IAM policy binding.
+gcloud iam service-accounts keys list               # List a service account's keys.
+```
+
+## Projects
+
+Manage project access policies.
+```
+gcloud projects describe                  # Display metadata for a project (including its ID).
+gcloud projects add-iam-policy-binding    # Add an IAM policy binding to a specified project.
+```
+
+
+## Pub-Sub
+Publishing message to a topic
+```
+gcloud pubsub subscriptions pull <topic_name> --auto-ack
+```
+Reading message from the topic using a subscription
+```
+gcloud pubsub subscriptions pull <subscription_name> --auto-ack
+```
+
+## Storage (GCS)
+List buckets
+```
+gcloud storage ls
+```
+List bucket objects
+```
+gcloud storage ls gs://<bucket_name>/
+```
+Uploading a file
+```
+gcloud storage cp <object_location> gs://<bucket_name>
+```
+Deleting a file
+```
+gcloud storage rm gs://<bucket_name>/<path_of_object>
+```
+
+
+===========================================================================================================
 
 ## Global flags
 
@@ -133,7 +165,7 @@ Some flags are available throughout the gcloud CLI experience, like:
 --format                                            # Set output format as config, csv, default, diff, disable, flattened, get, json, list, multi, none, object, table, text, value, or yaml.
 ```
 
-
+===========================================================================================================
 ## Reference
 https://cloud.google.com/sdk/docs/cheatsheet
 https://cloud.google.com/sdk/gcloud/reference
