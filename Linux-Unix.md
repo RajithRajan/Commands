@@ -175,8 +175,14 @@ To list details of a file
 
 ## id
 Details of the ID currently logged in
-`id`
+```
+id
 uid=1001(ssm-user) gid=1001(ssm-user) group=1001(ssm-user) context=system_u: system_r:unconfined_service_t:s0
+```
+List the group of current user
+```
+id -Gn
+```
 
 ## Ifconfig 
 Similar to ipconfig in windows
