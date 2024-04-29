@@ -413,16 +413,24 @@ $0 - name of the script
 $? - return code of last operation  
 
 ## Condition Check
+### Simple if statement
+```
 if [ 3 -eq 3 ] ;  then
 <command>
 fi
+```
 
+### If else statement
+```
 if [<condition>]; then
 <Command>
 else
 <Command>
 fi
+```
 
+### If elif and else
+```
 if [<condition>]; then
 <Command>
 elif [<condition>]; then
@@ -432,7 +440,10 @@ elif [<condition>]; then
 else
 <Command>
 fi
+```
 
+### case statement
+```
 case $choise in
 1)
 echo " You choose A"
@@ -443,25 +454,72 @@ echo " You choose B"
 *)
 echo "none of the above"
 esac
+```
 
+### Nested case
+```
+OS=$(uname -s | tr A-Z a-z)
+
+case $OS in
+  linux)
+    source /etc/os-release
+    case $ID in
+      debian|ubuntu|mint)
+        sudo apt-get install jq -y
+        ;;
+
+      fedora|rhel|centos|amzn)
+        sudo dnf install jq -y
+        ;;
+
+      *)
+        if [[ $(uname -p) == "x86_64" ]]; then
+          platform=amd64
+        else 
+          platform=arm64
+        fi    
+        curl https://github.com/jqlang/jq/releases/download/jq-1.7.1/jq-linux-${platform} -o jq
+        sudo mv jq /usr/local/bin
+        sudo chmod +x /usr/local/bin
+        ;;
+    esac
+  ;;
+
+  darwin)
+    brew install jq
+  ;;
+
+  *)
+    echo -n "unsupported OS"
+    ;;
+esac
+```
+
+```
 Any number b/w 0 9 [0-9]
 Any upper case [A-Z]
 Any lower case [a-z]
+```
 
-For number
+### conditions For number
+```
 -eq  =
 -ne <>
 -gt >
 -lt <
 -ge >=
 -le <=
+```
 
-For string
+### For string
+```
 ==
 !=
 if [-z "$str"] empty string check
+```
 
-For files
+### For files
+```
 if [ -e <file>] existence check
 !-e not existence
 -d directory check
@@ -470,35 +528,45 @@ if [ -e <file>] existence check
 -x executable
 -s empty check
 -f regular file and it should exist
+```
 
-Loops
+## Loops
+### for loop
+```
 for I in {1,2,3,4} 
 do
 echo "line"
 done
-
+```
 {1..7} / {1,"hello",2,"bye"}
 
 break - to break the loop
 
 Running loop on all the files in PWD
+```
 for I in ./*
 do
 echo "name of file is : $i"
 done
+```
 
+### While loop
+```
 while [ $number -le 15 ];
 do
 echo "number is $number"
 number=$((number +4))
 done
-
+```
 
 ## Logical operators
+```
 -o  OR
 -a  AND
+```
 
 ## Function
+```
 mydate() {
 echo $1
 return 35
@@ -506,31 +574,34 @@ return 35
 
 mydate "hello"
 echo "return vale $?"
+```
 
+## Variable
 Variable are global in nature
 local var1=value      is local in function
 
 
 exit - termination of script
+
 $? - exit status
 
 ## File Test
--b filename - Block special file
--c filename - Special character file
--d directoryname - Check for directory Existence
--e filename - Check for file existence, regardless of type (node, directory, socket, etc.)
--f filename - Check for regular file existence not a directory
--G filename - Check if file exists and is owned by effective group ID
--G filename set-group-id - True if file exists and is set-group-id
--k filename - Sticky bit
--L filename - Symbolic link
--O filename - True if file exists and is owned by the effective user id
--r filename - Check if file is a readable
--S filename - Check if file is socket
--s filename - Check if file is nonzero size
--u filename - Check if file set-user-id bit is set
--w filename - Check if file is writable
--x filename - Check if file is executable
+-b filename - Block special file  
+-c filename - Special character file  
+-d directoryname - Check for directory Existence  
+-e filename - Check for file existence, regardless of type (node, directory, socket, etc.)  
+-f filename - Check for regular file existence not a directory  
+-G filename - Check if file exists and is owned by effective group ID  
+-G filename set-group-id - True if file exists and is set-group-id  
+-k filename - Sticky bit  
+-L filename - Symbolic link  
+-O filename - True if file exists and is owned by the effective user id  
+-r filename - Check if file is a readable  
+-S filename - Check if file is socket  
+-s filename - Check if file is nonzero size  
+-u filename - Check if file set-user-id bit is set  
+-w filename - Check if file is writable  
+-x filename - Check if file is executable  
 ```
 #!/bin/bash
 file=./file
@@ -542,12 +613,11 @@ fi
 ```
 
 ## File
-/etc/passwd
-File is used for authentication of user
-usermod or useradd is used to modify or add a user
-
-Format of the file
-<username>:<password>:<UID>:<GID>:<full_name>:<home_dir>:<login_shell>
+- /etc/passwd
+  File is used for authentication of user
+  usermod or useradd is used to modify or add a user
+  Format of the file
+  <username>:<password>:<UID>:<GID>:<full_name>:<home_dir>:<login_shell>
 
 
 
