@@ -183,8 +183,11 @@ Deleting remote branch \
 `git push origin -d <branch_name>` \
 Renaming remote branch\
 `git push origin :old-name new-name` \
-Pushing into remote git on filesystem\
-`git push --set-upstream origin master` \
+Pushing into remote git on filesystem or to push an local branch to remote
+```
+git push --set-upstream origin master
+git push -u origin master
+```
 Push tags to remote (update as release)\
 `git push origin <tag_id>` \
 `git push --tags` \
