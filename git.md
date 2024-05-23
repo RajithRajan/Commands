@@ -184,6 +184,8 @@ List the difference of staged files
 ```
 git diff --cached
 ```
+
+# git fetch
 ```
 git fetch
 ```
@@ -191,6 +193,15 @@ Download the remote content to your repo. Without changing your code changes
 ```
 git fetch <remote_name> <branch_name>
 ```
+For a single remote all branches
+```
+git fetch <remote_name>
+```
+Delete reference to non-existing remote branches
+```
+git fetch --all --prune
+```
+
 
 # git fsck
 _Verifies the connectivity and validity of the objects in the database, its helpfull if you are getting error while push, pul or commit._ 
