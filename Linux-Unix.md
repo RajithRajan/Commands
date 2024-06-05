@@ -165,13 +165,27 @@ To list details of a file
 
 ## Grep
 #### Used for searching text in files
-`Grep so <path>`
+```
+Grep so <path>
+```
 #### Search text case insensitive
-`Grep -i so <path>`
+```
+Grep -i so <path>
+```
 #### Search for line without a text
-`Grep -v so <path>`
+```
+Grep -v so <path>
+```
 #### Search for text in all files in directory
-'grep -r <txt>'
+```
+grep -r <txt>
+```
+### Search a text and display lines before and after the match
+```
+grep -B 3 -A 2 foo README.txt
+# same number for lines before and after
+grep -C 3 foo README.txt
+```
 
 ## id
 Details of the ID currently logged in
