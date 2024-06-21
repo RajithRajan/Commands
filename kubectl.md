@@ -143,6 +143,33 @@ Get the external ip address of loadbalancer service
 kubectl get svc istio-ingressgateway -n istio-gateway -o jsonpath="{.status.loadBalancer.ingress[0].ip}
 ```
 
+## Kustomize
+```
+kubectl kustomize .                                           # Generate the yaml and print
+kubectl apply -k .                                            # apply the kustommized yaml
+```
+```
+resources:
+- deployment.yaml
+- service.yaml
+
+commonLabels:
+    app: kustomwebapp
+
+commonAnnotations:
+    app: my-annotations
+
+namePrefix:
+    my-
+
+nameSufix:
+    -test1
+
+configMapGenerator:
+- name: mykustom-map
+  env: config.properties
+```
+
 ## label
 ```
 kubectl label pods my-pod new-label=awesome                      # Add a Label
