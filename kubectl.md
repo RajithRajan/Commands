@@ -78,7 +78,15 @@ To create a kubernetes resource
 ```
 kubectl create ns testns
 ```
-
+To create a deployment 
+```
+kubectl create deployment test --image gorilla_websocket:latest
+kubectl create deployment test --image nginx -o=yaml --dry-run=client > deploy.yaml
+```
+Create a service for an nginx deployment, which serves on port 80 and connects to the containers on port 8000
+```
+kubectl expose deployment nginx --port=80 --target-port=8000
+```
 ## Debug
 To run debug container
 ```
