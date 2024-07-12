@@ -93,22 +93,38 @@ u - owner, g - group, o - others
 `Sudo chown -R <user_name> <dir>`
 `chown -R <uid>:<gid> <dir>`
 
+## cp
+Copy utility
+```
+cp ./test.txt         /tmp           # file copy
+cp -r ./bin           /tmp           # directory copy
+cp -r {./bin,./lib}   /tmp           # copy multiple directory
+```
+
 ## Crontab
 Schedule
+```
 Crontab -e.   > Edit
 Crontab -l.    > List
+```
 
 ## Curl
 Load what is available in the url
+```
 curl localhost:80
+```
 
 Download a file
+```
 curl ftp://localhost:80/a.tar.gz -o /TMP/a.tar.gz
+```
 
-## Df
+## df
 Disk free used to display the statistic about the amount of free space on the specified file system
-`df`
-`df -h`
+```
+df
+df -h    #Data in human readable form
+```
 
 ## dig
 #### Dig command is similar to nslookup in windows
@@ -377,7 +393,25 @@ Is used get location of the command
 Gives the current user name
 `Whoami`
 
-## Yum
+## xargs 
+xargs is a Unix command which can be used to build and execute commands from standard input. 
+```
+kubectl get po | grep test | cut -d ' ' -f 1 | xargs kubectl logs
+echo 'file1 file2 file3 file4' | xargs touch
+```
+prompt for input
+```
+echo 'file1a file2a file3a file4a' | xargs -p touch
+```
+take input from file
+```
+echo 'file1a file2a file3a file4a' > input.txt
+xargs -a input.txt rm
+```
+
+## yum
+yum is a package manager in redhat based linux distros
+
 Update all the installed applications
 `yum update -y`
 Install apache
