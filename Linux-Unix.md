@@ -126,6 +126,12 @@ df
 df -h    #Data in human readable form
 ```
 
+## dhclient
+Refresh DHCP option parameter
+```
+sudo dhclient -r eth0
+```
+
 ## dig
 #### Dig command is similar to nslookup in windows
 `dig +nocmd test.example.com A`
