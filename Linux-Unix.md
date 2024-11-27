@@ -227,6 +227,18 @@ Similar to ipconfig in windows
 ## Init 6
 Reboot Linux machine
 
+## ip
+Display ip address and property info
+```
+ip address
+ip address show dev eno1
+```
+Manage and display state of interface 
+```
+ip link
+ip link show dev eno1
+```
+
 ## Killall / kill / pkill
 Kills the process
 `Killall <process_name>`
@@ -381,6 +393,23 @@ Command to list the top consumer of memory or CPU. Similar to task manager.
 ## Touch
 To create a file in PWD
 `touch <file_name>`
+
+## tracepath
+Trace path from host to destination also show MTU
+```
+tracepath <dest>
+tracepath -p <port> <dest>
+tracepath -m <# max hop> <dest>
+tracepath -m <dest> 
+```
+
+## traceroute
+trace route is a more powerful tool but require root access 
+
+```
+traceroute<dest>
+```
+
 
 ## Unset
 Unset any variable
