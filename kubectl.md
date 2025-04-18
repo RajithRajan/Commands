@@ -123,6 +123,16 @@ Compares the current state of the cluster against the state that the cluster wou
 kubectl diff -f ./my-manifest.yaml
 ```
 
+## Get Nodes
+Command to get nodes with specific lable
+```
+kubectl get nodes -l node-type=shared-svc
+```
+Command to get node's zone,instance-type & arch
+```
+kubectl get nodes -L topology.kubernetes.io/zone,node.kubernetes.io/instance-type, kubernetes.io/arch
+```
+
 ## Get PO/POD
 Command to get list of images currently running in default name space  
 ```
