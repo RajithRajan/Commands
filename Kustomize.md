@@ -1,5 +1,18 @@
 # Kustomize
-Kustomize is a way of performing few modification to the manifest on each environment, it is much simpler way of managing Kubernetes manifest for deployment into different environment. It does not have a templating feature like a Helm but it an inbuild plugin to kubectl with few feature which make modification possible per environment.    
+Kustomize is a way of performing few modification to the manifest on each environment, it is much simpler way of managing Kubernetes manifest for deployment into different environment. It does not hav[...]
+
+## Table of contents
+- [Structure of a kustomize project](#structure-of-a-kustomize-project)
+- [Multi-directory structure](#multi-directory-structure)
+- [Sample Kustomization.yaml file in base dir.](#sample-kustomizationyaml-file-in-base-dir)
+- [Deploying this kustomize project](#deploying-this-kustomize-project)
+- [Common Transformer](#common-transformer)
+- [Image Transformer](#image-transformer)
+- [Patches](#patches)
+  - [Json 6902 Patch](#json-6902-patch)
+  - [Strategic Patch](#strategic-patch)
+- [Overlay](#overlay)
+- [Components](#components)
 
 Structure of a kustomize project
 ```
@@ -17,7 +30,7 @@ Structure of a kustomize project
         ├── kustomization.yaml
         └── map.yaml
 ```
-Multi-directory structure
+## Multi-directory structure
 ```
 .
 └── code
@@ -44,7 +57,7 @@ Multi-directory structure
             ├── nginx-depl.yaml
             └── nginx-service.yaml
 ```
-Sample Kustomization.yaml file in base dir.
+## Sample Kustomization.yaml file in base dir.
 ```
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
@@ -59,7 +72,7 @@ resources:
 - service.yaml
 - configMap.yaml
 ```
-Deploying this kustomize project
+## Deploying this kustomize project
 ```
 kustomize build overlays/staging |\
     kubectl apply -f -
@@ -69,7 +82,7 @@ kustomize build overlays/staging |\
 kubectl apply -k overlays/staging
 ```
 
-## Common Tranformer
+## Common Transformer
 Common transformation are used to solve certain common usecases
 - commonLabel - adds a label to all kubernetes resources
 - namePrefix/Suffic - adds a common prefix-suffix to all resource names
@@ -285,7 +298,7 @@ prod/kustomization
           value: 10
 ```
 ## Components
-Components provide the ability to define reusable pieces of configuration logic (resources + patches) that can be included in multiple overlays. It useful in situations where applications support multiple optional features the need to be enabled only in a subset of overlays.
+Components provide the ability to define reusable pieces of configuration logic (resources + patches) that can be included in multiple overlays. It useful in situations where applications support mult[...]
 ```
 ~/k8s/
 ├── base/
