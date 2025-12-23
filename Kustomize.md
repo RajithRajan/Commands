@@ -284,3 +284,51 @@ prod/kustomization
           path: /spec/replicas
           value: 10
 ```
+## Components
+Components provide the ability to define reusable pieces of configuration logic (resources + patches) that can be included in multiple overlays. It useful in situations where applications support multiple optional features the need to be enabled only in a subset of overlays.
+```
+~/k8s/
+├── base/
+│   ├── kustomization.yaml
+│   ├── deployment.yaml
+│   └── service.yaml
+├── overlays/
+|   ├── free/
+|   │   └── kustomization.yaml
+|   ├── premium
+|   |   └── kustomization.yaml
+|   └── self-hosted
+|       └── kustomization.yaml
+└── components
+    ├── caching
+    |   ├── redis-deployment.yaml
+    │   └── deployment-patch.yaml
+    │   └── kustomization.yaml
+    └── db
+        ├── postgres-depl.yaml             
+        ├── deployment-patch.yaml
+        └── kustomization.yaml
+```
+
+sample kustomization file for components
+```
+apiVersion: kustomize.config.k8s.io/v1alpha1
+kind: Component
+
+resources:
+  - postgres-depl.yaml
+secretGenerator:
+  - name: postgres-cred
+    literals:
+      - password=postgres123
+patches:
+  - deployment-patch.yaml
+```
+
+sample for kustomization file in overlays
+```
+bases:
+  - ../../base
+components:
+  - ../../components/db
+```
