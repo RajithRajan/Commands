@@ -241,3 +241,46 @@ patches:
               - $patch: delete
                 name: database
 ```
+## Overlay
+Overlays is not a new concept but a directory stucture and method to provide patches at environment level basis.
+Structure of a kustomize project
+```
+~/k8s/
+├── base/
+│   ├── kustomization.yaml
+│   ├── deployment.yaml
+│   ├── redis-deployment.yaml
+│   └── service.yaml
+└── overlays/
+    ├── prod/
+    │   ├── kustomization.yaml
+    │   └── config-map.yaml
+    |   └── pdb.yaml
+    └── stg/
+    |   ├── kustomization.yaml
+    |   └── config-map.yaml
+    └── dev/
+        ├── kustomization.yaml
+        └── config-map.yaml
+```
+
+dev/kustomization 
+```
+  bases:
+    - ../../base
+  patch: |-
+        - op: replace
+          path: /spec/replicas
+          value: 2
+```
+prod/kustomization 
+```
+  bases:
+    - ../../base
+  resources:
+    - pdb.yaml
+  patch: |-
+        - op: replace
+          path: /spec/replicas
+          value: 10
+```
